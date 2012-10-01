@@ -24,14 +24,14 @@
 
 ## 设置说明
 用记事本打开源代码后，只需要修改前面几行
-> **USERNAME** 就是在DNSPod里的用户名  
-> **PASSWORD** 就是在DNSPod里的密码  
-> **DOMAIN\_ID** 就是域名的ID，在后面我会说明获取的方法  
-> **SUB\_DOMIAN** 就是你要设置DDNS的二级域名，如果要针对一级域名设置DDNS，则填写为 @  
-> **IP\_API** 就是获取IP地址的接口，默认的是我的博客服务器，服务器在香港，绝大多数情况下都能工作的很良好，但是也不能排除线路抽风的情况。所以有条件的也可以改成自己的服务器地址。返回格式就直接是IP地址就行了，不需要用xml/json进行包装  
-> **dx\_interface** 就是连接电信线路网卡的内网IP，一定要为静态IP。因为curl是根据IP来绑定网卡的，而不是MAC地址或者网卡名称  
-> **lt\_interface** 就是连接联通线路网卡的内网IP，同样也需要为静态IP，理由同上  
-> **record_id** 三条DNSPod记录的id，在后面我会说明获取的方法
+> `USERNAME` 就是在DNSPod里的用户名  
+> `PASSWORD` 就是在DNSPod里的密码  
+> `DOMAIN_ID` 就是域名的ID，在后面我会说明获取的方法  
+> `SUB_DOMIAN` 就是你要设置DDNS的二级域名，如果要针对一级域名设置DDNS，则填写为 @  
+> `IP_API` 就是获取IP地址的接口，默认的是我的博客服务器，服务器在香港，绝大多数情况下都能工作的很良好，但是也不能排除线路抽风的情况。所以有条件的也可以改成自己的服务器地址。返回格式就直接是IP地址就行了，不需要用xml/json进行包装  
+> `dx_interface` 就是连接电信线路网卡的内网IP，一定要为静态IP。因为curl是根据IP来绑定网卡的，而不是MAC地址或者网卡名称  
+> `lt_interface` 就是连接联通线路网卡的内网IP，同样也需要为静态IP，理由同上  
+> `record_id` 三条DNSPod记录的id，在后面我会说明获取的方法
 
 设置完成后保存，用 **Windows计划任务** 或者 **crontab** 定时每分钟运行一次就行了。
 
@@ -43,19 +43,20 @@
 ## DOMAIN\_ID获取说明
 使用Internet Explorer 8 / 9登录DNSPod网站，进入到域名列表，这时按下 **F12**，再按下 **Ctrl + B**，选中你要设置DDNS域名前面的选择框，这时下方的代码框会高亮出类似这样的一句代码
 
-> `<input name="check" type="checkbox" value="1357924"/>`
+`<input name="check" type="checkbox" value="1357924"/>`
 
 其中的 **`1357924`** 就是你的DOMAIN\_ID了。
 
 ## record\_id获取说明
 接着上步，进入到域名的解析记录列表，请先随意添加三条记录（如果已经添加过就不用再添加了），添加完成后点下页面下方 **开发人员工具** 里的刷新按钮，再按下 **Ctrl + B**，选中你刚才添加的记录前的选择框，这是下面的代码框会高亮出类似这样的一句代码
 
-> `<input name="check" class="record-checkbox" type="checkbox" value="12345678"/>`
+`<input name="check" class="record-checkbox" type="checkbox" value="12345678"/>`
 
 其中的 **`123456789`** 就是record\_id了。  
 接着再重复上面的操作，按下 **Ctrl + B** ，选择另一条记录前的选择框，获取record\_id，接着再重复，把三个record\_id获取出来。
 
 ## 最后说明
+* 以上的两步操作也可以用Firefox + Firebug / Chrome / Opera完成，用IE做解释是因为大家都有IE（无视水果机）
 * 这段代码是根据现在正在运行的代码添加注释，美化代码重写出来的（原版代码无注释，代码写的很乱）。原版代码已经稳定运行了一年多，这个重写的应该也没有太大问题。
 * 如果以后哪天闲的无聊了，或许会写一个DOMAIN\_ID / record_id 获取工具出来。但是，等着吧...
 * 如果在使用时遇到了任何问题，欢迎和我交流：
