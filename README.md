@@ -59,7 +59,7 @@
 * 以上的两步操作也可以用Firefox + Firebug / Chrome / Opera完成，用IE做解释是因为大家都有IE（无视水果机）
 * 这段代码是根据现在正在运行的代码添加注释，美化代码重写出来的（原版代码无注释，代码写的很乱）。原版代码已经稳定运行了一年多，这个重写的应该也没有太大问题。
 * 如果以后哪天闲的无聊了，或许会写一个DOMAIN\_ID / record_id 获取工具出来。但是，等着吧...
-* 如果在使用时遇到了任何问题，欢迎和我交流：
+* 如果在使用时遇到了任何问题，欢迎和我交流：  
 > QQ: 565837499  
-  Email: <vibbow@gmail.com>  
-  Blog: <http://vsean.net/>
+> Email: <vibbow@gmail.com>  
+> Blog: <http://vsean.net/>
